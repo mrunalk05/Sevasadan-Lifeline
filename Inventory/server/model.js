@@ -6,11 +6,11 @@ const patternSchema= mongoose.Schema({
         type: String,
         required: true
     },
-    quantity:{
-        type: Number,
+    company:{
+        type: String,
         required: true
     },
-    company:{
+    quantity:{
         type: String,
         required: true
     },
