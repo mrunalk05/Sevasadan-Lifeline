@@ -24,4 +24,15 @@ app.post('/add', async(req, res)=>{
     catch(error){
         console.log('Error occured', error);
     }
+});
+
+app.get('/all', async(req, res)=>{
+    try{
+        const all = await pattern.find();
+        res.status(200).json(all);
+        console.log(all); 
+    }
+    catch(error){
+        console.log('Error Occured', error);
+    }
 })
