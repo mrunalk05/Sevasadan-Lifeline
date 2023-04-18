@@ -13,7 +13,6 @@ app.listen(PORT, ()=>{
     console.log(`App is running on ${PORT}`);
 });
 db();
-
 app.post('/add', async(req, res)=>{
     const boody= req.body;
     try{
@@ -29,10 +28,11 @@ app.post('/add', async(req, res)=>{
 app.get('/all', async(req, res)=>{
     try{
         const all = await pattern.find();
-        res.status(200).json(all);
+        // res.status(200).json(all);
         console.log(all); 
     }
     catch(error){
         console.log('Error Occured', error);
     }
-})
+});
+

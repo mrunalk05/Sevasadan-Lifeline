@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import autoIncrement from 'mongoose-auto-increment';
-autoIncrement.initialize(mongoose.connection);
+// autoIncrement.initialize(mongoose.connection);
 const patternSchema= mongoose.Schema({
     name:{
         type: String,
@@ -20,8 +20,8 @@ const patternSchema= mongoose.Schema({
     }
 });
 
-patternSchema.plugin(autoIncrement.plugin, 'patternn');
+// patternSchema.plugin(autoIncrement.plugin, 'patternn');
 const patternn= mongoose.model('patternn', patternSchema);
-
+// await mongoose.model('patternn').findOne();
 
 export default patternn;
