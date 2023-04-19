@@ -20,8 +20,8 @@ const NavBar = () => {
         <Header position="static">
             <Toolbar>
                 <Tabs to="./" exact>Inventory</Tabs>
-                <Tabs to="all" exact>All Users</Tabs>
-                <Tabs to="add" exact>Add User</Tabs>
+                <Tabs to="all" exact>All Stock</Tabs>
+                <Tabs to="add" exact>Add Stock</Tabs>
             </Toolbar>
         </Header>
     )

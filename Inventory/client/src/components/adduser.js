@@ -1,7 +1,7 @@
 import react, { useState } from 'react';
 import { FormGroup, FormControl, InputLabel, Input, Button, styled, Typography } from '@mui/material';
 import { useNavigate } from "react-router-dom";
-import { addUser } from '../services/api';
+import { addUser , getUser} from '../services/api';
 
 const initialValue = {
     name: '',

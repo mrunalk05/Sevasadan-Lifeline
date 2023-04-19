@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URL= 'http://localhost:8080';
+const URL= 'http://localhost:8000';
 
 export const addUser=async(user)=>{
     try{
@@ -26,5 +26,8 @@ export const getUser= async(id)=>{
     catch(error){
         console.log('Error occured', error);
     }
+}
+export const deleteUser= async()=>{
+    
 }
 
