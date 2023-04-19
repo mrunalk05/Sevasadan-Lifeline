@@ -1,6 +1,6 @@
 import react, { useState } from 'react';
 import { FormGroup, FormControl, InputLabel, Input, Button, styled, Typography } from '@mui/material';
-// import { useNavigate } from 'router';
+import { useNavigate } from "react-router-dom";
 import { addUser } from '../services/api';
 
 const initialValue = {
@@ -21,6 +21,7 @@ const AddUser = () => {
     const [user, setUser] = useState(initialValue);
     const { name, company, quantity, disease } = user;
     
+    const navigate= useNavigate();
     // const navigate = useNavigate();
 
     const onValueChange = (e) => {
@@ -29,7 +30,7 @@ const AddUser = () => {
 
     const addUserDetails = async() => {
         await addUser(user);
-        // navigate('/all');
+        navigate('/all');
     }
 
     return (

@@ -8,7 +8,7 @@ const app= express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-const PORT= 8080;
+const PORT= 8000;
 app.listen(PORT, ()=>{
     console.log(`App is running on ${PORT}`);
 });
@@ -27,8 +27,8 @@ app.post('/add', async(req, res)=>{
 
 app.get('/all', async(req, res)=>{
     try{
-        const all = await pattern.find();
-        // res.status(200).json(all);
+        const all = await pattern.find({});
+        res.status(200).json(all);
         console.log(all); 
     }
     catch(error){

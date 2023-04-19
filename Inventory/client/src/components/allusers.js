@@ -69,19 +69,6 @@ const Allusers= ()=>{
                     })
                 }
 
-
-               
-                    // <TRow>
-                    //     <TableCell></TableCell> {/* change it to user.id to use JSON Server */}
-                    //     <TableCell></TableCell>
-                    //     <TableCell></TableCell>
-                    //     <TableCell></TableCell>
-                    //     <TableCell></TableCell>
-                    //     <TableCell>
-                    //         <Button color="primary" variant="contained" style={{marginRight:10}} component to={`/edit/`}>Edit</Button> {/* change it to user.id to use JSON Server */}
-                    //         <Button color="secondary" variant="contained" onClick>Delete</Button> {/* change it to user.id to use JSON Server */}
-                    //     </TableCell>
-                    // </TRow>
                
             </TableBody>
         </StyledTable>
