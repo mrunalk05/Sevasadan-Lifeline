@@ -31,3 +31,10 @@ export const deleteUser= async()=>{
     
 }
 
+export const addbed= async()=>{
+    try{
+        return await axios.post(`${URL}/add_bed`)
+    }catch(error){
+        console.log('Error occured while adding bed', error);
+    }
+}
