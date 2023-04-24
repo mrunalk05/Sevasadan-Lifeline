@@ -35,8 +35,8 @@ const AllUsers = () => {
     }
 
     const getAllUsers = async () => {
-        let response = await allUser();
-        setUsers(response.data);
+        const res = await allUser();
+        setUsers(res.data);
     }
 
     return (
