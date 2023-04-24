@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URL= 'http://localhost:8080';
+const URL= 'http://localhost:8000';
 
 export const addUser=async(user)=>{
     try{
@@ -27,4 +27,14 @@ export const getUser= async(id)=>{
         console.log('Error occured', error);
     }
 }
+export const deleteUser= async()=>{
+    
+}
 
+export const addbed= async()=>{
+    try{
+        return await axios.post(`${URL}/add_bed`)
+    }catch(error){
+        console.log('Error occured while adding bed', error);
+    }
+}
