@@ -22,6 +22,7 @@ const NavBar = () => {
                 <Tabs to="./" exact>Inventory</Tabs>
                 <Tabs to="all" exact>All Stock</Tabs>
                 <Tabs to="add" exact>Add Stock</Tabs>
+                <Tabs to="addbed" exact>Add Bed</Tabs>
             </Toolbar>
         </Header>
     )

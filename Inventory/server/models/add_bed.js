@@ -1,11 +1,11 @@
 import mongoose from "mongoose";
 
-const bedschema= mongoose.Schema({
+const bedschema= new mongoose.Schema({
     room:{
         type: String,
         required: true
     },
-    bed_no:{
+    bedno:{
         type: String,
         required: true
     },
