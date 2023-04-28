@@ -23,6 +23,7 @@ const NavBar = () => {
                 <Tabs to="all" exact>All Stock</Tabs>
                 <Tabs to="add" exact>Add Stock</Tabs>
                 <Tabs to="addbed" exact>Add Bed</Tabs>
+                <Tabs to='users' exact>Contact Us</Tabs>
             </Toolbar>
         </Header>
     )

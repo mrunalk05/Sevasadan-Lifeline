@@ -1,40 +1,23 @@
-import axios from 'axios';
+import React from "react";
+import axios from 'axios'
 
-const URL= 'http://localhost:8000';
-
-export const addUser=async(user)=>{
-    try{
-       return await axios.post(`${URL}/add`, user);
-       
-    }catch(error){
-        console.log('Error occured', error);
-    }
+const usersUrl = 'http://localhost:8000';
+export const getUsers = async (id) => {
+    id = id || '';
+    return await axios.get(`${usersUrl}/${id}`);
 }
 
-export const allUser= async()=>{
-    try{
-        return await axios.get(`${URL}/all`, )
-    }catch(error){
-        console.log('Error occured', error);
-    }
+export const addUser = async (user) => {
+    return await axios.post(`${usersUrl}/add`, user);
 }
 
-export const getUser= async(id)=>{
-    try{
-        return await axios.get(`${URL}/${id}`)
-    }
-    catch(error){
-        console.log('Error occured', error);
-    }
-}
-export const deleteUser= async()=>{
-    
+export const deleteUser = async (id) => {
+    return await axios.delete(`${usersUrl}/${id}`);
 }
 
-export const addbed= async()=>{
-    try{
-        return await axios.post(`${URL}/addbed`)
-    }catch(error){
-        console.log('Error occured while adding bed', error);
-    }
+export const editUser = async (id, user) => {
+    return await axios.put(`${usersUrl}/${id}`, user)
+}
+export const addbed = async () => {
+    return await axios.post(`${usersUrl}/addbed`)
 }

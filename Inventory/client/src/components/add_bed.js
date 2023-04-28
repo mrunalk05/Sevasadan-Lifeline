@@ -3,7 +3,7 @@ import "../styles/form.css"
 import { addbed } from "../services/api";
 
 const initialValue = {
-  room:'',
+  roomno:'',
   bedno:'',
   patient: ''
 }
@@ -11,7 +11,7 @@ const initialValue = {
 const AddBeds=()=>{
 
   const [user, setUser]= useState(initialValue);
-  const {room, bedno, patient}= setUser;
+  const {roomno, bedno, patient}= setUser;
   
 
     const onValueChange=(e)=>{
@@ -20,6 +20,7 @@ const AddBeds=()=>{
     }
 
     const addUserDetails=async()=>{
+        console.log('ppp');
       console.log(user)
       await addbed(user);
     }
@@ -32,11 +33,11 @@ const AddBeds=()=>{
         <div className="user-details">
           <div className="input-box">
             <span className="details">Room Number</span>
-            <input type="text" onChange={(e)=>{onValueChange(e)}} value={room} placeholder="Enter Room Number" name="room"/>
+            <input type="text" onChange={(e)=>{onValueChange(e)}} value={roomno} placeholder="Enter Room Number" name="roomno"/>
           </div>
           <div className="input-box">
             <span className="details">Bed Number</span>
-            <input type="text" onChange={(e)=>{onValueChange(e)}} value={bedno} placeholder="Enter Bed Number"  name="bed_no"/>
+            <input type="text" onChange={(e)=>{onValueChange(e)}} value={bedno} placeholder="Enter Bed Number"  name="bedno"/>
           </div>
           <div className="input-box">
             <span className="details">Patient</span>
