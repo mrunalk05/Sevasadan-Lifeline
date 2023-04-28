@@ -52,15 +52,15 @@ const EditUser = () => {
                 <Input onChange={(e) => onValueChange(e)} name='name' value={name} id="my-input" aria-describedby="my-helper-text" />
             </FormControl>
             <FormControl>
-                <InputLabel htmlFor="my-input">Username</InputLabel>
+                <InputLabel htmlFor="my-input">Company</InputLabel>
                 <Input onChange={(e) => onValueChange(e)} name='username' value={username} id="my-input" aria-describedby="my-helper-text" />
             </FormControl>
             <FormControl>
-                <InputLabel htmlFor="my-input">Email</InputLabel>
+                <InputLabel htmlFor="my-input">Quantity</InputLabel>
                 <Input onChange={(e) => onValueChange(e)} name='email' value={email} id="my-input" aria-describedby="my-helper-text" />
             </FormControl>
             <FormControl>
-                <InputLabel htmlFor="my-input">Phone</InputLabel>
+                <InputLabel htmlFor="my-input">Disease</InputLabel>
                 <Input onChange={(e) => onValueChange(e)} name='phone' value={phone} id="my-input" aria-describedby="my-helper-text" />
             </FormControl>
             <FormControl>

@@ -9,6 +9,7 @@ import EditUser from './components/edit';
 import AddBeds from './components/add_bed';
 import Files from './components/addfiles';
 import EmailSend from './components/email';
+import Chatbot from './components/chatbot';
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
    <BrowserRouter>
    <NavBar />
   <Routes>
-    <Route path='/' element={<Inventory />} />
+    <Route path='/' element={<Chatbot />} />
    <Route path='/add' element={<AddUser />} />
    <Route path='/all' element={<Allusers />} />
    <Route  path='/edit/:id' element={<EditUser />}/>
