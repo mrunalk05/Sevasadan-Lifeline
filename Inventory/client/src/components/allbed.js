@@ -23,7 +23,7 @@ const TRow = styled(TableRow)`
     }
 `;
 
-const AllUsers = () => {
+const AllBed = () => {
     const [users, setUsers] = useState([]);
     
     useEffect(() => {
@@ -36,7 +36,7 @@ const AllUsers = () => {
     }
 
     const getAllUsers = async () => {
-        let response = await axios.get('http://localhost:8080/getinven')
+        let response = await axios.get('http://localhost:8080/getbed')
         setUsers(response.data);
     }
 
@@ -44,30 +44,22 @@ const AllUsers = () => {
         <StyledTable>
             <TableHead>
                 <THead>
-                    <TableCell>Category</TableCell>
-                    <TableCell>Dosage</TableCell>
-                    <TableCell>Strength</TableCell>
-                    <TableCell>Batch</TableCell>
-                    <TableCell>ExpDate</TableCell>
-                    <TableCell>Storage</TableCell>
-                    <TableCell>Manuf</TableCell>
-                    <TableCell>ndc</TableCell>
-                    <TableCell>Barcode</TableCell>
+                    <TableCell>Id</TableCell>
+                    <TableCell>Bed No</TableCell>
+                    <TableCell>Room No</TableCell>
+                    <TableCell>Patient</TableCell>
+                    {/* <TableCell>Disease</TableCell> */}
                     <TableCell></TableCell>
                 </THead>
             </TableHead>
             <TableBody>
                 {users.map((user) => (
                     <TRow key={user.id}>
-                        <TableCell>{user.Category}</TableCell> {/* change it to user.id to use JSON Server */}
-                        <TableCell>{user.Dosage}</TableCell>
-                        <TableCell>{user.Strength}</TableCell>
-                        <TableCell>{user.batch}</TableCell>
-                        <TableCell>{user.ExpDate}</TableCell>
-                        <TableCell>{user.Storage}</TableCell>
-                        <TableCell>{user.Manuf}</TableCell>
-                        <TableCell>{user.ndc}</TableCell>
-                        <TableCell>{user.barcode}</TableCell>
+                        <TableCell>{user._id}</TableCell> {/* change it to user.id to use JSON Server */}
+                        <TableCell>{user.bedno}</TableCell>
+                        <TableCell>{user.roomno}</TableCell>
+                        <TableCell>{user.patient}</TableCell>
+                        {/* <TableCell>{user.disease}</TableCell> */}
                         <TableCell>
                             <Button color="primary" variant="contained" style={{marginRight:10}} component={Link} to={`/edit/${user._id}`}>Edit</Button> {/* change it to user.id to use JSON Server */}
                             <Button color="secondary" variant="contained" onClick={() => deleteUserData(user._id)}>Delete</Button> {/* change it to user.id to use JSON Server */}
@@ -79,4 +71,4 @@ const AllUsers = () => {
     )
 }
 
-export default AllUsers;
+export default AllBed;

@@ -1,7 +1,7 @@
 import React from "react";
 import axios from 'axios'
 
-const usersUrl = 'http://localhost:8000';
+const usersUrl = 'http://localhost:8080';
 export const getUsers = async (id) => {
     id = id || '';
     return await axios.get(`${usersUrl}/${id}`);

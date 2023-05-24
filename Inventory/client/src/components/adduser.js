@@ -2,12 +2,18 @@ import react, { useState } from 'react';
 import { FormGroup, FormControl, InputLabel, Input, Button, styled, Typography } from '@mui/material';
 import { useNavigate } from "react-router-dom";
 import { addUser , getUser} from '../services/api';
+import axios from 'axios';
 
 const initialValue = {
-    name: '',
-    company: '',
-    quantity: '',
-    disease: ''
+    Category:'',
+    Dosage:'',
+    Strength:'',
+    batch:'',
+    ExpDate:'',
+    Storage:'',
+    Manuf:'',
+    ndc:'',
+    barcode:'',
 }
 
 const Container = styled(FormGroup)`
@@ -19,7 +25,7 @@ const Container = styled(FormGroup)`
 
 const AddUser = () => {
     const [user, setUser] = useState(initialValue);
-    const { name, company, quantity, disease } = user;
+    const { Category, Dosage, Strength, batch, ExpDate, Storage, Manuf, ndc, barcode } = user;
     
     const navigate= useNavigate();
     // const navigate = useNavigate();
@@ -29,28 +35,67 @@ const AddUser = () => {
     }
 
     const addUserDetails = async() => {
-        await addUser(user);
+        await axios.post('http://localhost:8080/addinven', user)
         navigate('/all');
     }
+
+//     const [selectedOption, setSelectedOption] = useState('');
+
+//         const handleOptionChange = (e) => {
+//         setSelectedOption(e.target.value);
+//   };
 
     return (
         <Container>
             <Typography variant="h4">Add Medicines</Typography>
+            <div>
+      <label htmlFor="dropdown">Category:</label>
+      <select id="dropdown" name='Category' value={Category} onChange={onValueChange}>
+        <option value="">Select</option>
+        <option value="Antibiotics">Antibiotics</option>
+        <option value="Analgesics">Analgesics</option>
+        <option value="Antipyretics">Antipyretics</option>
+        <option value="Anticoagulants">Anticoagulants</option>
+        <option value="Antihypertensives">Antihypertensives</option>
+        <option value="Antidepressants">Antidepressants</option>
+        <option value="Antidiabetic-medications">Antidiabetic medications</option>
+        <option value="Anticonvulsants">Anticonvulsants</option>
+        <option value="Antiemetics">Antiemetics</option>
+        <option value="Anti-inflammatory drugs">Anti-inflammatory drugs</option>
+      </select>
+      {/* <p>Selected option: {selectedOption}</p> */}
+    </div>
             <FormControl>
-                <InputLabel htmlFor="my-input">Name</InputLabel>
-                <Input onChange={(e) => onValueChange(e)} name='name' value={name} id="my-input" />
+                <InputLabel htmlFor="my-input">Strength</InputLabel>
+                <Input onChange={(e) => onValueChange(e)} name='Strength' value={Strength} id="my-input" />
             </FormControl>
             <FormControl>
-                <InputLabel htmlFor="my-input">Company</InputLabel>
-                <Input onChange={(e) => onValueChange(e)} name='company' value={company} id="my-input" />
+                <InputLabel htmlFor="my-input">Dosage Form</InputLabel>
+                <Input onChange={(e) => onValueChange(e)} name='Dosage' value={Dosage} id="my-input" />
             </FormControl>
             <FormControl>
-                <InputLabel htmlFor="my-input">Quantity</InputLabel>
-                <Input onChange={(e) => onValueChange(e)} name='quantity' value={quantity} id="my-input"/>
+                <InputLabel htmlFor="my-input">Batch or Lot Number</InputLabel>
+                <Input onChange={(e) => onValueChange(e)} name='batch' value={batch} id="my-input"/>
             </FormControl>
             <FormControl>
-                <InputLabel htmlFor="my-input">Disease</InputLabel>
-                <Input onChange={(e) => onValueChange(e)} name='disease' value={disease} id="my-input" />
+                <InputLabel htmlFor="my-input">Expire Date</InputLabel>
+                <Input onChange={(e) => onValueChange(e)} name='ExpDate' value={ExpDate} id="my-input" />
+            </FormControl>
+            <FormControl>
+                <InputLabel htmlFor="my-input">Storage Condition</InputLabel>
+                <Input onChange={(e) => onValueChange(e)} name='Storage' value={Storage} id="my-input" />
+            </FormControl>
+            <FormControl>
+                <InputLabel htmlFor="my-input">Manufacturing Date</InputLabel>
+                <Input onChange={(e) => onValueChange(e)} name='Manuf' value={Manuf} id="my-input" />
+            </FormControl>
+            <FormControl>
+                <InputLabel htmlFor="my-input">National Drug Code</InputLabel>
+                <Input onChange={(e) => onValueChange(e)} name='ndc' value={ndc} id="my-input" />
+            </FormControl>
+            <FormControl>
+                <InputLabel htmlFor="my-input">Barcode</InputLabel>
+                <Input onChange={(e) => onValueChange(e)} name='barcode' value={barcode} id="my-input" />
             </FormControl>
             <FormControl>
                 <Button variant="contained" color="primary" onClick={() => addUserDetails()}>Add User</Button>

@@ -1,6 +1,8 @@
 import { useState } from "react"
 import "../styles/form.css"
+import { useNavigate } from "react-router-dom";
 import { addbed } from "../services/api";
+import axios from "axios";
 
 const initialValue = {
   roomno:'',
@@ -9,10 +11,10 @@ const initialValue = {
 }
 
 const AddBeds=()=>{
+  const navigate= useNavigate();
 
   const [user, setUser]= useState(initialValue);
-  const {roomno, bedno, patient}= setUser;
-  
+  const { roomno, bedno, patient } = user;
 
     const onValueChange=(e)=>{
       setUser({...user, [e.target.name]:e.target.value})
@@ -20,9 +22,8 @@ const AddBeds=()=>{
     }
 
     const addUserDetails=async()=>{
-        console.log('ppp');
-      console.log(user)
-      await addbed(user);
+        await axios.post('http://localhost:8080/addbed', user)
+        navigate('/allbed');
     }
 
     return(

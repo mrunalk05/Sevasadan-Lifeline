@@ -15,6 +15,6 @@ const bedschema= mongoose.Schema({
     }
 });
 
-const bedmodel = mongoose.model('beds', bedschema);
+const bedmodel = mongoose.model('bedmodel', bedschema);
 
 export default bedmodel;

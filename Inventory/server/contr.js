@@ -1,15 +1,17 @@
 import express from "express";
 // import bed from "./models/add_bed";
 import patternn from "./models/add_med";
-import nodemailer from 'nodemailer'
 import bedmodel from "./models/add_bed";
 
 export const addbed=async(req, res)=>{
-   const boody= req.body;
    try{
-    const newbed= bedmodel(boody);
-    await newbed.save();
-    console.log(newbed);
+    const newbed= new bedmodel({
+        roomno: req.body.roomno,
+        bedno: req.body.patient,
+        patient: req.body.bedno
+    })
+    const result= await newbed.save();
+    res.json(newbed)
    }catch(error){
     res.json({message:error.message});
    }
@@ -20,7 +22,7 @@ export const addUsers=async(req, res)=>{
     try{
         const newuser= new patternn(boody);
         await newuser.save();
-        console.log(newuser);
+        res.json(newuser)
     }
     catch(error){
         console.log('Error occured', error);
@@ -30,6 +32,17 @@ export const addUsers=async(req, res)=>{
 export const getUsers=async(req, res)=>{
     try{
         const all = await patternn.find({});
+        res.status(200).json(all);
+        // console.log(all); 
+    }
+    catch(error){
+        console.log('Error Occured', error);
+    }
+}
+
+export const getinven=async(req, res)=>{
+    try{
+        const all = await bedmodel.find({});
         res.status(200).json(all);
         // console.log(all); 
     }
