@@ -1,5 +1,5 @@
 import { useState } from "react"
-import "../styles/form.css"
+// import "../styles/form.css"
 import { useNavigate } from "react-router-dom";
 import { addbed } from "../services/api";
 import axios from "axios";

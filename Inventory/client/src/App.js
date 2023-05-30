@@ -11,6 +11,7 @@ import Files from './components/addfiles';
 import EmailSend from './components/email';
 import Chatbot from './components/chatbot';
 import AllBed from './components/allbed';
+import Footer from './components/footer';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
    <Route path='/addbed' element={<AddBeds />}/>
    {/* <Route path='/bed' element={<AddBeds />} /> */}
   </Routes>
+  
   </BrowserRouter>
    </>
   );

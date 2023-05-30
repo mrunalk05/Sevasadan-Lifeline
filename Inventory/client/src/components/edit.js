@@ -1,6 +1,6 @@
-import react, { useState } from 'react';
+import react, { useState, useEffect } from 'react';
 import { FormGroup, FormControl, InputLabel, Input, Button, styled, Typography } from '@mui/material';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { addUser , getUser} from '../services/api';
 import axios from 'axios';
 
@@ -26,7 +26,8 @@ const Container = styled(FormGroup)`
 const EditUser = () => {
     const [user, setUser] = useState(initialValue);
     const { Category, Dosage, Strength, batch, ExpDate, Storage, Manuf, ndc, barcode } = user;
-    
+    const { id } = useParams();
+
     const navigate= useNavigate();
     // const navigate = useNavigate();
 
@@ -35,15 +36,18 @@ const EditUser = () => {
     }
 
     const addUserDetails = async() => {
-        await axios.put('http://localhost:8080/', user)
+        await axios.put(`http://localhost:8080/${id}`, user)
         navigate('/all');
     }
 
-//     const [selectedOption, setSelectedOption] = useState('');
+    useEffect(() => {
+        loadUserDetails();
+    }, []);
 
-//         const handleOptionChange = (e) => {
-//         setSelectedOption(e.target.value);
-//   };
+    const loadUserDetails = async() => {
+        const response = await axios.get(`http://localhost:8080/${id}`)
+        setUser(response.data);
+    }
 
     return (
         <Container>
@@ -98,7 +102,7 @@ const EditUser = () => {
                 <Input onChange={(e) => onValueChange(e)} name='barcode' value={barcode} id="my-input" />
             </FormControl>
             <FormControl>
-                <Button variant="contained" color="primary" onClick={() => addUserDetails()}>Add User</Button>
+                <Button variant="contained" color="primary" onClick={() => addUserDetails()}>Edit Stock</Button>
             </FormControl>
         </Container>
     )

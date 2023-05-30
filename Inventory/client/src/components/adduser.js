@@ -98,7 +98,7 @@ const AddUser = () => {
                 <Input onChange={(e) => onValueChange(e)} name='barcode' value={barcode} id="my-input" />
             </FormControl>
             <FormControl>
-                <Button variant="contained" color="primary" onClick={() => addUserDetails()}>Add User</Button>
+                <Button variant="contained" color="primary" onClick={() => addUserDetails()}>Add Stock</Button>
             </FormControl>
         </Container>
     )
